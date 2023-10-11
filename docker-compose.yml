@@ -1,0 +1,26 @@
+version: "3"
+services:
+  db:
+    image: postgres
+    ports:
+      - "5433:5432"
+    env_file:
+      - .env
+
+  scrapy:
+    build:
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/app
+    env_file:
+      - .env
+    depends_on:
+      - db
+      - chromedriver
+
+  chromedriver:
+    image: selenium/standalone-chrome
+    ports:
+      - "4444:4444"
+    privileged: true
+    shm_size: 2g
