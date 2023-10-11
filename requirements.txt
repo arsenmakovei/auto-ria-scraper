@@ -21,7 +21,7 @@ outcome==1.2.0
 packaging==23.2
 parsel==1.8.1
 Protego==0.3.0
-psycopg2==2.9.9
+psycopg2-binary==2.9.9
 pyasn1==0.5.0
 pyasn1-modules==0.3.0
 pycparser==2.21
@@ -43,7 +43,6 @@ tldextract==3.6.0
 trio==0.22.2
 trio-websocket==0.11.1
 Twisted==22.10.0
-twisted-iocpsupport==1.0.4
 typing_extensions==4.8.0
 tzdata==2023.3
 tzlocal==5.1

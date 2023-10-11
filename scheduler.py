@@ -10,6 +10,7 @@ load_dotenv()
 POSTGRES_DB = os.getenv("POSTGRES_DB")
 POSTGRES_USER = os.getenv("POSTGRES_USER")
 POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD")
+POSTGRES_HOST = os.getenv("POSTGRES_HOST")
 
 
 def run_scraper():
@@ -21,6 +22,7 @@ def run_scraper():
 def create_database_dump():
     print("Start creating database dump")
     os.environ["PGPASSWORD"] = POSTGRES_PASSWORD
+    os.environ["PGHOST"] = POSTGRES_HOST
     current_date = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     dump_filename = f"dumps/dump_{current_date}.sql"
     subprocess.run(

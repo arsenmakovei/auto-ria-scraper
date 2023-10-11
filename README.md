@@ -53,3 +53,19 @@ To start the scheduler, run:
    ```
 
 The scheduler will run in the background and execute the scraper and database dump tasks based on the specified schedule.
+
+3. Running scheduled scraper in Docker
+
+Uncomment the code below in the file `cars_scraper/spiders/used_cars.py`:
+
+```shell
+self.driver = webdriver.Remote(
+   command_executor="http://chromedriver:4444/wd/hub", options=chrome_options
+) 
+```
+
+To run docker, execute the following command:
+
+```shell
+docker-compose up --build
+```
